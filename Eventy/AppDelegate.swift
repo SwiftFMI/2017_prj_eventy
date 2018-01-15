@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        log.error("ouch, an error did occur!")  // prio 5, ERROR in red
 
         log.info("We are running")
-        
+        log.info("We are running! Dobreva is in the project ;)")
         return true
     }
 
