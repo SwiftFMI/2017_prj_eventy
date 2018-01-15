@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         log.info("We are running")
         log.info("We are running! Dobreva is in the project ;)")
+        log.info("Ivan")
         return true
     }
 
