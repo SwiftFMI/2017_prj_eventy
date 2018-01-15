@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,35 +49,35 @@
 		1804910B521898C22F518D919024191B /* Pods-EventyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EventyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		190CD27F27AEA9DDFAFC12057A597C2E /* Pods-EventyUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EventyUITests-umbrella.h"; sourceTree = "<group>"; };
 		2071F98BCE0B4A9BC0FDB43142E0771D /* Pods-EventyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EventyTests.release.xcconfig"; sourceTree = "<group>"; };
-		263071D8E5685F7B0A7E12CDDBA2453E /* SwiftyBeaver.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyBeaver.modulemap; sourceTree = "<group>"; };
-		26786BCC899AF9371CAC05ACD247533C /* Pods-Eventy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Eventy.modulemap"; sourceTree = "<group>"; };
+		263071D8E5685F7B0A7E12CDDBA2453E /* SwiftyBeaver.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyBeaver.modulemap; sourceTree = "<group>"; };
+		26786BCC899AF9371CAC05ACD247533C /* Pods-Eventy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Eventy.modulemap"; sourceTree = "<group>"; };
 		3828726FE01C34A8AD8CEA62FFCAD609 /* Pods-Eventy-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Eventy-frameworks.sh"; sourceTree = "<group>"; };
 		43CF41B91D68CCA22AACAAAD579BD7D8 /* Pods-Eventy-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Eventy-acknowledgements.plist"; sourceTree = "<group>"; };
 		45A25EEE9061B5511D58F013CE2A60BC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C4B258ECE1D01811DE5FC54CBA3CD4E /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
 		4C840367AB343FF8F32F3B53FAE69DAB /* SBPlatformDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SBPlatformDestination.swift; path = Sources/SBPlatformDestination.swift; sourceTree = "<group>"; };
 		50D4D93305BFB3C0166F749E5C0ADD95 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyBeaver.swift; path = Sources/SwiftyBeaver.swift; sourceTree = "<group>"; };
-		53F0D4E939EF270DFC0EFB725B9F037C /* Pods_EventyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EventyTests.framework; path = "Pods-EventyTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		53F0D4E939EF270DFC0EFB725B9F037C /* Pods_EventyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D3E1479D3B086415F3DCC005A96CA39 /* Pods-Eventy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Eventy.debug.xcconfig"; sourceTree = "<group>"; };
 		5F8E263D2A3ADE4C4D7C0A9A228E20BA /* Pods-EventyTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EventyTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		62DA6779B374DEE27FC4D4E1D935E862 /* Pods_EventyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_EventyUITests.framework; path = "Pods-EventyUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		62DA6779B374DEE27FC4D4E1D935E862 /* Pods_EventyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		67ADB56DA70973C69223EA9B252177DE /* BaseDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BaseDestination.swift; path = Sources/BaseDestination.swift; sourceTree = "<group>"; };
 		6A07EEC109D12790605479CFC9EC7B18 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D69B00396093DC6321DDF933C3115F2 /* Pods-Eventy-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Eventy-resources.sh"; sourceTree = "<group>"; };
-		6F18B98EBDD7511819354FDC4CEFB32E /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyBeaver.framework; path = SwiftyBeaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F18B98EBDD7511819354FDC4CEFB32E /* SwiftyBeaver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyBeaver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		729ABCC0A342A5F29C626BD88F35C05D /* Pods-EventyTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EventyTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		7AF0A9DABFAB8829FBE34C84E232D193 /* Pods-EventyUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EventyUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8EA00DB93FE5BF7D99979B7886626799 /* Pods-EventyTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EventyTests-resources.sh"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9B050CA8809103132BF6F14598F80389 /* Pods-EventyUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EventyUITests-dummy.m"; sourceTree = "<group>"; };
-		9C4E9BE03DB14344359437FD1B0DD510 /* Pods-EventyUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-EventyUITests.modulemap"; sourceTree = "<group>"; };
+		9C4E9BE03DB14344359437FD1B0DD510 /* Pods-EventyUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-EventyUITests.modulemap"; sourceTree = "<group>"; };
 		A6CB19985A049DA02228A677889D28F0 /* SwiftyBeaver.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyBeaver.xcconfig; sourceTree = "<group>"; };
 		A924DC6BF7D1926C8DD1B830FFEFB307 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9672C0DEEB759FAF19584FEC192C395 /* FileDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FileDestination.swift; path = Sources/FileDestination.swift; sourceTree = "<group>"; };
 		AB0D99BD53C710A388119EA5C597A983 /* SwiftyBeaver-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyBeaver-prefix.pch"; sourceTree = "<group>"; };
 		ACB6A21EBEFEA7F31CA83BA27DF5DF5B /* Pods-Eventy-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Eventy-acknowledgements.markdown"; sourceTree = "<group>"; };
-		B2F2CF58746E6339A5E8D92999366F71 /* Pods-EventyTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-EventyTests.modulemap"; sourceTree = "<group>"; };
+		B2F2CF58746E6339A5E8D92999366F71 /* Pods-EventyTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-EventyTests.modulemap"; sourceTree = "<group>"; };
 		B4E520EB6680B4003301AE122F65C7C7 /* Pods-Eventy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Eventy-dummy.m"; sourceTree = "<group>"; };
 		B55A95D219512310B1CF7790E7032A86 /* SwiftyBeaver-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyBeaver-umbrella.h"; sourceTree = "<group>"; };
 		C3B57957716E5139CB8851BFDD79F5DB /* Pods-EventyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EventyUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		E0BBA460F18CCB10E2E9B43C3E9F367F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3B42A85331D3C8B1139A711A264797C /* Pods-EventyUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EventyUITests-frameworks.sh"; sourceTree = "<group>"; };
 		E6AED7C8093C7415D368DA35410E19D6 /* AES256CBC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AES256CBC.swift; path = Sources/AES256CBC.swift; sourceTree = "<group>"; };
-		E8852A2BED6F364B5ED48978694B80D6 /* Pods_Eventy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Eventy.framework; path = "Pods-Eventy.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8852A2BED6F364B5ED48978694B80D6 /* Pods_Eventy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Eventy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED472BE4629BE4973BB68D8208CFC9DF /* Pods-Eventy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Eventy.release.xcconfig"; sourceTree = "<group>"; };
 		F7FD0BD1CC3EA22A1446F325F344B8D6 /* ConsoleDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConsoleDestination.swift; path = Sources/ConsoleDestination.swift; sourceTree = "<group>"; };
 		FC0FFAEFA17B6B36EAC64DE528F4E7D4 /* GoogleCloudDestination.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GoogleCloudDestination.swift; path = Sources/GoogleCloudDestination.swift; sourceTree = "<group>"; };
@@ -253,7 +253,6 @@
 				50D4D93305BFB3C0166F749E5C0ADD95 /* SwiftyBeaver.swift */,
 				C9ECD57966CDB30DCE0F6D5155AA05E2 /* Support Files */,
 			);
-			name = SwiftyBeaver;
 			path = SwiftyBeaver;
 			sourceTree = "<group>";
 		};
@@ -389,7 +388,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0920;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -708,6 +707,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
