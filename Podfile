@@ -7,7 +7,7 @@ target 'Eventy' do
 
   # Pods for Eventy
   pod 'SwiftyBeaver'
-
+  pod 'Alamofire', '~> 4.5'
 
   target 'EventyTests' do
     inherit! :search_paths
