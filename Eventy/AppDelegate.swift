@@ -9,6 +9,8 @@ import UIKit
 import SwiftyBeaver
 
 let log = SwiftyBeaver.self
+var token: Token?
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
