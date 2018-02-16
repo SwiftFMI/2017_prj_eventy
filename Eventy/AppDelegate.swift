@@ -32,9 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        log.warning("oh no, that won’t be good")  // prio 4, WARNING in yellow
 //        log.error("ouch, an error did occur!")  // prio 5, ERROR in red
 
-        log.info("We are running")
-        log.info("We are running! Dobreva is in the project ;)")
-        log.info("Ivan")
+        log.verbose("Starting up.")
         return true
     }
 
