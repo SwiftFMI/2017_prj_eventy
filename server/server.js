@@ -11,6 +11,39 @@ function uuidv4() {
 
 var accessToken = uuidv4();
 
+var users = [
+    {
+        "name": "Viki Dobreva",
+        "id": 1,
+        "events" : [1, 3],
+        "profile-pic": "https://www.sonypark360.net/wp-content/uploads/2017/08/profile-pictures.png"
+    },
+    {
+        "name": "Petar",
+        "id": 2,
+        "events" : [2],
+        "profile-pic": "https://www.sonypark360.net/wp-content/uploads/2017/08/profile-pictures.png"
+    }
+]
+
+var events = [
+    {
+        "name": "Beerfest",
+        "id": 1,
+        "location" : "Sofia"
+    },
+    {
+        "name": "Some event",
+        "id": 2,
+        "location" : "Burgas"
+    },
+    {
+        "name": "Ski competition",
+        "id": 3,
+        "location" : "Bansko"
+    }
+]
+
 console.log("Generated access token: " + accessToken)
 
 commonHeaders = {
@@ -42,9 +75,61 @@ function onLogin(req, res) {
 
 function onUser(req, res) {
     if(req.headers["access-token"] == accessToken) {
-        setResponse(res, 200, commonHeaders, {"name": "Viki", "id": 1})
+        setResponse(res, 200, commonHeaders, users[0])
     } else {
         setResponse(res, 403, {}, "Error")
+    }
+}
+
+function onOtherUser(req, res) {
+    if(req.headers["access-token"] == accessToken) {
+        var query = url.parse(req.url, true).query;
+        if (query.userid <= users.length) {
+            setResponse(res, 200, commonHeaders, users[query.userid - 1])
+        } else {
+            setResponse(res, 400, {}, "No such user")
+        }
+    } else {
+        setResponse(res, 403, {}, "Error")
+    }
+}
+
+function onTrending(req, res) {
+    if(req.headers["access-token"] == accessToken) {
+        setResponse(res, 200, commonHeaders, {"ids": [1, 3]})
+    } else {
+        setResponse(res, 403, {}, "Error")
+    }
+}
+
+function onEvent(req, res) {
+    if(req.headers["access-token"] == accessToken) {
+        var query = url.parse(req.url, true).query;
+
+        if (query.eventid <= events.length) {
+            setResponse(res, 200, commonHeaders, events[query.eventid - 1])
+        } else {
+            setResponse(res, 400, {}, "No such event")
+        }
+    } else {
+        setResponse(res, 403, {}, "Error")
+    }
+}
+
+function onAddEvent(req, res) {
+    if(req.headers["access-token"] == accessToken) {
+        var query = url.parse(req.url, true).query;
+
+        var event = {}
+        event.id = events.length
+        event.name = query.name
+        event.location = query.location
+
+        events.push(event)
+        setResponse(res, 200, commonHeaders, {"id": event.id + 1})
+
+    } else {
+        setResponse(res, 403, {}, "Access denied")
     }
 }
 
@@ -60,8 +145,20 @@ http.createServer(function (req, res) {
                 onLogin(req, res)
                 break;
 
-            case "/user":
+            case "/userinfo":
                 onUser(req, res)
+                break;
+
+            case "/user":
+                onOtherUser(req, res)
+                break;
+
+            case "/trending":
+                onTrending(req, res)
+                break;
+
+            case "/event":
+                onEvent(req, res)
                 break;
 
             // used to test sent data return the sent data
@@ -76,6 +173,10 @@ http.createServer(function (req, res) {
 
     if(req.method == "POST") {
         switch(path) {
+
+            case "/addevent":
+                onAddEvent(req, res)
+                break;
 
             // no such option
             default:
