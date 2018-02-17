@@ -16,6 +16,7 @@
 		A7433F04203850A100CAC15B /* TrendingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7433F03203850A100CAC15B /* TrendingResult.swift */; };
 		A7433F06203862FF00CAC15B /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7433F05203862FF00CAC15B /* EventViewController.swift */; };
 		A7433F0A2038B32D00CAC15B /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7433F092038B32D00CAC15B /* ImageTableViewCell.swift */; };
+		A7433F0D2038B57600CAC15B /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7433F0C2038B57600CAC15B /* UsersTableViewController.swift */; };
 		A7DAF8B4200D3EF200801734 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DAF8B3200D3EF200801734 /* AppDelegate.swift */; };
 		A7DAF8B6200D3EF200801734 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DAF8B5200D3EF200801734 /* LoginController.swift */; };
 		A7DAF8B9200D3EF200801734 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7DAF8B7200D3EF200801734 /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		A7433F03203850A100CAC15B /* TrendingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResult.swift; sourceTree = "<group>"; };
 		A7433F05203862FF00CAC15B /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		A7433F092038B32D00CAC15B /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		A7433F0C2038B57600CAC15B /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		A7DAF8B0200D3EF200801734 /* Eventy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eventy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DAF8B3200D3EF200801734 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7DAF8B5200D3EF200801734 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		A7433F0720389CAC00CAC15B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A7433F0C2038B57600CAC15B /* UsersTableViewController.swift */,
 				A7433F05203862FF00CAC15B /* EventViewController.swift */,
 				A7DAF8B5200D3EF200801734 /* LoginController.swift */,
 				A7433EFB203840E800CAC15B /* ProfileViewController.swift */,
@@ -512,6 +515,7 @@
 				A7DAF8B6200D3EF200801734 /* LoginController.swift in Sources */,
 				A7433EFC203840E800CAC15B /* ProfileViewController.swift in Sources */,
 				A7433EFE2038447200CAC15B /* User.swift in Sources */,
+				A7433F0D2038B57600CAC15B /* UsersTableViewController.swift in Sources */,
 				A7433F06203862FF00CAC15B /* EventViewController.swift in Sources */,
 				A7433F022038500100CAC15B /* TrendingTableViewController.swift in Sources */,
 				A7433F0A2038B32D00CAC15B /* ImageTableViewCell.swift in Sources */,

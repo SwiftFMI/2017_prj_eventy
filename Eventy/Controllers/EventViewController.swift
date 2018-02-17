@@ -59,21 +59,32 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        
     }
     
     @IBAction func addImage(_ sender: UIButton) {
-        // TODO implement image upload
+        // TODO: implement image upload
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let userIds = event?.participantIds
+        if let userVC = segue.destination as? UsersTableViewController {
+            userVC.userIds = userIds
+            if let createdByUserId = event?.createdById {
+                userVC.createdByUserId = createdByUserId
+            }
+        }
+        
     }
-    */
+ 
     
     // MARK: - TableView
     
@@ -113,8 +124,8 @@ extension UIImageView {
                 
                 do {
                     let imageData: Data = try Data(contentsOf: url)
-                    DispatchQueue.main.async { [unowned self] in
-                        self.image = UIImage(data: imageData)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.image = UIImage(data: imageData)
                         log.verbose("Loaded image from url: \(stringUrl)")
                     }
                 } catch {
