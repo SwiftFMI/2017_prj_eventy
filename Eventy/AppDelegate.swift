@@ -13,6 +13,8 @@ var token: Token?
 
 let serverIp = "http://10.0.1.203:8080"
 
+var chachedEvents = [Event]()
+var cachedUsers = [User]()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

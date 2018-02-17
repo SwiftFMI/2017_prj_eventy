@@ -208,20 +208,33 @@
             <point key="canvasLocation" x="777" y="-170"/>
         </scene>
         <!--Trending-->
-        <scene sceneID="RcK-X5-xIr">
+        <scene sceneID="z3P-uF-H97">
             <objects>
-                <viewController id="H2D-c6-uZn" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="h7u-F8-wsp">
+                <tableViewController id="eJC-Ye-ftz" customClass="TrendingTableViewController" customModule="Eventy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="z9i-xo-M79">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="EqR-qF-aUz"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Trending" id="Jr0-It-rI7"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8LN-7S-SeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="G7b-Se-RFN">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G7b-Se-RFN" id="w4m-Wb-Qqw">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eJC-Ye-ftz" id="Oxf-to-pBk"/>
+                            <outlet property="delegate" destination="eJC-Ye-ftz" id="bH9-U4-AOA"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Trending" id="R2T-ZO-VFD"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M6u-z5-HBC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="777" y="781"/>
+            <point key="canvasLocation" x="777" y="779"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NvY-AV-GPc">
@@ -233,7 +246,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="H2D-c6-uZn" kind="relationship" relationship="viewControllers" id="Dv3-nj-0xM"/>
+                        <segue destination="eJC-Ye-ftz" kind="relationship" relationship="viewControllers" id="hcq-Eb-17B"/>
                         <segue destination="KaF-Zk-QTh" kind="relationship" relationship="viewControllers" id="WYo-z3-TGi"/>
                         <segue destination="MIi-aj-FPd" kind="relationship" relationship="viewControllers" id="hOU-Ju-uh8"/>
                     </connections>
