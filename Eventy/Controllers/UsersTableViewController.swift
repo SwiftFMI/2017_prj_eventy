@@ -117,9 +117,9 @@ class UsersTableViewController: UITableViewController {
         
         if let user = cachedUsers.first(where: {$0.id == userIds[indexPath.row]}) {
             cell.textLabel?.text = user.name
-            if user.id == createdByUserId {
-                cell.detailTextLabel?.text = "(creator)"
-            }
+            
+            cell.detailTextLabel?.text = user.id == createdByUserId ?  "(creator)" : ""
+            
             
             if let image = imagesForUsers[safe: indexPath.row] {
                 cell.imageView?.image = image
@@ -130,6 +130,7 @@ class UsersTableViewController: UITableViewController {
                             let imageData: Data = try Data(contentsOf: url)
                             DispatchQueue.main.async { [weak self] in
                                 guard let img = UIImage(data: imageData) else { return }
+                                self?.imagesForUsers.reserveCapacity(indexPath.row)
                                 self?.imagesForUsers.insert(img, at: indexPath.row)
                                 self?.tableView.reloadRows(at: [indexPath], with: .automatic)
                                 log.verbose("Loaded image from url: \(user.profilePicPath)")
