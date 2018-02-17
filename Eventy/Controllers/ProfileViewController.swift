@@ -18,7 +18,13 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadProfile {}
+        loadProfile { [unowned self] in
+            if let events = self.mainUser?.eventsIds {
+                // TODO load user events here
+                // cache sould be used if possible
+                // similar logic is used in TrendingViewController
+            }
+        }
     }
     
     
@@ -30,7 +36,7 @@ class ProfileViewController: UIViewController {
             method: .get,
             headers: ["access-token" : t])
             .validate()
-            .responseString { (response) -> Void in
+            .responseString { [unowned self] (response) -> Void in // ATTENTION [unowned self] to prevent reference cycle
                 guard response.result.isSuccess else {
                     log.error("Error response: \(String(describing: response.result.error))")
                     completion()
@@ -42,10 +48,17 @@ class ProfileViewController: UIViewController {
                     
                     if let json = response.result.value {
                         self.mainUser = try User(json)
+                        
                         self.nameLabel.text = self.mainUser!.name
                         let profilePicUrl = URL(string: self.mainUser!.profilePicPath)
                         let imageData: Data = try! Data(contentsOf: profilePicUrl!)
                         self.profileImage.image = UIImage(data: imageData)
+                        
+                        // add the used to the cache for later use
+                        if let user = self.mainUser {
+                            cachedUsers = cachedUsers.filter { $0.id != user.id }
+                            cachedUsers.append(user)
+                        }
                         
                     } else {
                         log.warning("cound not get json")
