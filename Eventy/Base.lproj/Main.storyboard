@@ -109,7 +109,7 @@
         <!--Profile-->
         <scene sceneID="Slt-mq-JuT">
             <objects>
-                <viewController id="MIi-aj-FPd" sceneMemberID="viewController">
+                <viewController id="MIi-aj-FPd" customClass="ProfileViewController" customModule="Eventy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gbr-6l-awM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -134,7 +134,7 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzy-ft-vjg">
                                         <rect key="frame" x="0.0" y="143" width="343" height="28.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -203,6 +203,10 @@
                         <viewLayoutGuide key="safeArea" id="DCp-Jn-la7"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="Gtq-gD-vNs"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="zzy-ft-vjg" id="JLb-0m-LU4"/>
+                        <outlet property="profileImage" destination="6K2-1p-UQ3" id="6Xu-xy-oK0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdi-gr-euR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
