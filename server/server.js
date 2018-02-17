@@ -23,6 +23,18 @@ var users = [
         "id": 2,
         "events" : [2],
         "profile-pic": "https://www.sonypark360.net/wp-content/uploads/2017/08/profile-pictures.png"
+    },
+    {
+        "name": "Kalin",
+        "id": 3,
+        "events" : [3],
+        "profile-pic": "https://www.sonypark360.net/wp-content/uploads/2017/08/profile-pictures.png"
+    },
+    {
+        "name": "Asen",
+        "id": 4,
+        "events" : [3],
+        "profile-pic": "https://www.sonypark360.net/wp-content/uploads/2017/08/profile-pictures.png"
     }
 ]
 
@@ -30,17 +42,35 @@ var events = [
     {
         "name": "Beerfest",
         "id": 1,
-        "location" : "Sofia"
+        "location" : "Sofia",
+        "created-by" : 1,
+        "participants": [1],
+        "images": [
+            "http://images.mentalfloss.com/sites/default/files/styles/mf_image_3x2/public/beerfest.png?itok=y9cLMuKD&resize=1100x740",
+            "https://beerfests.com/laravel-frontend/public/uploads/blogs/thumb/survive-beerfest.jpg"
+        ]
     },
     {
         "name": "Some event",
         "id": 2,
-        "location" : "Burgas"
+        "location" : "Burgas",
+        "created-by" : 2,
+        "participants": [2],
+        "images": [
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjIULiQ5LSnq_hzWnovENr2PnCaRzVpZYVTc4hW08m0UwucIOkMw"
+        ]
     },
     {
         "name": "Ski competition",
         "id": 3,
-        "location" : "Bansko"
+        "location" : "Bansko",
+        "created-by" : 1,
+        "participants": [1, 3, 4],
+        "images": [
+            "http://agentpalmer.com/wp-content/uploads/2014/02/Olympic-Skiing-Events.jpg",
+            "http://i.telegraph.co.uk/multimedia/archive/02657/SkicrossBODY2_2657502a.jpg",
+            "https://usatthebiglead.files.wordpress.com/2016/11/gettyimages-512843548.jpg?w=1000&h=600&crop=1"
+        ]
     }
 ]
 
@@ -124,9 +154,12 @@ function onAddEvent(req, res) {
         event.id = events.length
         event.name = query.name
         event.location = query.location
+        event['created-by'] = 1
 
         events.push(event)
         setResponse(res, 200, commonHeaders, {"id": event.id + 1})
+
+        users[0].events.push(event.id + 1)
 
     } else {
         setResponse(res, 403, {}, "Access denied")
