@@ -7,7 +7,8 @@
 
 import UIKit
 
-class EventViewController: UIViewController {
+class EventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     
     var eventId: Int? = nil
     var event: Event?
@@ -26,6 +27,12 @@ class EventViewController: UIViewController {
     @IBOutlet weak var mainImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var imageTableView: UITableView! {
+        didSet {
+            imageTableView.delegate = self
+            imageTableView.dataSource = self
+        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -67,6 +74,32 @@ class EventViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - TableView
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return max((event?.imagePaths.count ?? 0) - 1, 0)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath)
+        
+        log.info(" cell for row at index path \(indexPath)")
+        
+        if let cell = cell as? ImageTableViewCell {
+            cell.myImage.loadAsync(fromUrl: event?.imagePaths[indexPath.row + 1])
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return view.bounds.width / 2
+    }
 
 }
 
@@ -82,6 +115,7 @@ extension UIImageView {
                     let imageData: Data = try Data(contentsOf: url)
                     DispatchQueue.main.async { [unowned self] in
                         self.image = UIImage(data: imageData)
+                        log.verbose("Loaded image from url: \(stringUrl)")
                     }
                 } catch {
                     log.error("Could not load image from url: \(stringUrl)")
