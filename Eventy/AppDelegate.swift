@@ -11,6 +11,8 @@ import SwiftyBeaver
 let log = SwiftyBeaver.self
 var token: Token?
 
+let serverIp = "http://10.0.1.203:8080"
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

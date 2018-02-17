@@ -44,7 +44,7 @@ class LoginController: UIViewController {
         guard let pass = passwordTextField.text else { return }
         
         Alamofire.request(
-            URL(string: "http://10.0.1.203:8080/login")!,
+            URL(string: serverIp + "/login")!,
             method: .get,
             parameters: ["user": user, "pass": pass])
             .validate()

@@ -88,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-839" y="-155"/>
+            <point key="canvasLocation" x="-1014" y="-170"/>
         </scene>
         <!--Add Event-->
         <scene sceneID="NgR-M1-cGy">
@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nDT-KL-WyV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8" y="782"/>
+            <point key="canvasLocation" x="-106" y="780"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Slt-mq-JuT">
@@ -159,7 +159,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="9A7-yQ-Uwk" detailTextLabel="H2X-AX-0h0" rowHeight="112" style="IBUITableViewCellStyleSubtitle" id="Kz9-bC-bNR">
                                         <rect key="frame" x="0.0" y="28" width="375" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kz9-bC-bNR" id="NmE-i6-6Gs">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kz9-bC-bNR" id="NmE-i6-6Gs" customClass="EventCell">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="111.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -202,9 +202,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdi-gr-euR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="517.5" y="-169.5"/>
+            <point key="canvasLocation" x="777" y="-170"/>
         </scene>
-        <!--Near me-->
+        <!--Trending-->
         <scene sceneID="RcK-X5-xIr">
             <objects>
                 <viewController id="H2D-c6-uZn" sceneMemberID="viewController">
@@ -214,11 +214,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="EqR-qF-aUz"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Near me" id="Jr0-It-rI7"/>
+                    <tabBarItem key="tabBarItem" title="Trending" id="Jr0-It-rI7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8LN-7S-SeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="518" y="782"/>
+            <point key="canvasLocation" x="777" y="781"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NvY-AV-GPc">
@@ -237,7 +237,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lBw-f3-z5v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-105" y="-168"/>
+            <point key="canvasLocation" x="-106" y="-170"/>
         </scene>
     </scenes>
     <resources>
