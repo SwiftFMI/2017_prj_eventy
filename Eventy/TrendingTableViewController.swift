@@ -203,14 +203,21 @@ class TrendingTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if let indexPath = tableView.indexPathForSelectedRow{
+            let eventId = trending?.ids[indexPath.row]
+            if let eventVC = segue.destination as? EventViewController {
+                eventVC.eventId = eventId
+            }
+        }
     }
-    */
+ 
 
 }
