@@ -50,9 +50,17 @@ class ProfileViewController: UIViewController {
                         self.mainUser = try User(json)
                         
                         self.nameLabel.text = self.mainUser!.name
+                        
+                        
                         let profilePicUrl = URL(string: self.mainUser!.profilePicPath)
-                        let imageData: Data = try! Data(contentsOf: profilePicUrl!)
-                        self.profileImage.image = UIImage(data: imageData)
+                        
+                        // load without blocking the UI
+                        DispatchQueue.global().async {
+                            let imageData: Data = try! Data(contentsOf: profilePicUrl!)
+                            DispatchQueue.main.async { [unowned self] in
+                                self.profileImage.image = UIImage(data: imageData)
+                            }
+                        }
                         
                         // add the used to the cache for later use
                         if let user = self.mainUser {
