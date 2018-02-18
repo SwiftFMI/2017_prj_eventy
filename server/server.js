@@ -126,7 +126,7 @@ function onOtherUser(req, res) {
 
 function onTrending(req, res) {
     if(req.headers["access-token"] == accessToken) {
-        setResponse(res, 200, commonHeaders, {"ids": [1, 3]})
+        setResponse(res, 200, commonHeaders, {"ids": [1, 2, 3]})
     } else {
         setResponse(res, 403, {}, "Error")
     }

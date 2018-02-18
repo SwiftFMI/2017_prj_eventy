@@ -15,6 +15,9 @@ class ProfileViewController: UIViewController {
     
     var mainUser: User?
     
+    // TODO: when this in not nil load the selected user but not the currently logged in
+    var userId: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
