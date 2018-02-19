@@ -156,7 +156,7 @@
                                 <rect key="frame" x="0.0" y="238" width="375" height="381"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Event" textLabel="9A7-yQ-Uwk" detailTextLabel="H2X-AX-0h0" imageView="dug-R2-EYG" rowHeight="112" style="IBUITableViewCellStyleSubtitle" id="Kz9-bC-bNR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" textLabel="9A7-yQ-Uwk" detailTextLabel="H2X-AX-0h0" imageView="dug-R2-EYG" rowHeight="112" style="IBUITableViewCellStyleSubtitle" id="Kz9-bC-bNR">
                                         <rect key="frame" x="0.0" y="28" width="375" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kz9-bC-bNR" id="NmE-i6-6Gs" customClass="EventCell">
