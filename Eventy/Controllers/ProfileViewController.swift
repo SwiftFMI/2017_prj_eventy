@@ -8,10 +8,11 @@
 import UIKit
 import Alamofire
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
     
     var mainUser: User?
     
@@ -23,9 +24,17 @@ class ProfileViewController: UIViewController {
         
         loadProfile { [unowned self] in
             if let events = self.mainUser?.eventsIds {
-                // TODO load user events here
-                // cache sould be used if possible
-                // similar logic is used in TrendingViewController
+                for id in events {
+                    if let indexToReload = cachedEvents.index(where: { $0.id == id }) {
+                        self.reloadCell(index: events.index(of: id)!)
+                    } else {
+                        log.debug("Loading event with id: \(id)")
+                        self.loadEvent(id: id) { [unowned self] in
+                            log.debug("Loaded event with id: \(id)")
+                            self.reloadCell(index: events.index(of: id)!)
+                        }
+                    }
+                }
             }
         }
     }
@@ -80,6 +89,89 @@ class ProfileViewController: UIViewController {
                 completion()
         }
     
+    }
+    
+    func loadEvent(id: Int, completion: @escaping () -> Void) {
+        
+        guard let t = token?.accessToken else { return }
+        log.info("will load event with id \(id)")
+        Alamofire.request(
+            URL(string: serverIp + "/event")!,
+            method: .get,
+            parameters: ["eventid": "\(id)"],
+            headers: ["access-token": t])
+            .validate()
+            .responseString { (response) in
+                guard response.result.isSuccess else {
+                    log.error("Error response: \(String(describing: response.result.error))")
+                    completion()
+                    return
+                }
+                
+                do {
+                    log.debug(response.result.value!)
+                    
+                    if let json = response.result.value {
+                        let event = try Event(json)
+                        
+                        cachedEvents = cachedEvents.filter { $0.id != event.id }
+                        cachedEvents.append(event)
+                        
+                        
+                    } else {
+                        log.warning("cound not get json")
+                    }
+                } catch {
+                    log.warning("Cound not parse response")
+                }
+                completion()
+        }
+    }
+    
+    func reloadCell(index: Int) {
+        log.info("Reloading cell id: \(index)")
+        let indexPath = IndexPath(row: index, section: 0)
+        
+        DispatchQueue.main.async { [unowned self] in
+            if self.lastItemsInSection == (self.mainUser?.eventsIds.count ?? 0) {
+                // just reload the cell with the info of the newly loaded event
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            } else {
+                // the section has wrong number of rows -> reload
+                self.tableView.reloadSections([0], with: .automatic)
+            }
+            
+        }
+    }
+    
+    // Table view:
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    var lastItemsInSection = 0
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        lastItemsInSection = self.mainUser?.eventsIds.count ?? 0
+       
+        return lastItemsInSection
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Event", for: indexPath)
+        
+        log.info(" cell for row at index path \(indexPath)")
+        
+        if let t = mainUser {
+            let event = cachedEvents.first(where: {$0.id == t.eventsIds[indexPath.row]})
+            cell.textLabel?.text = event?.name
+            cell.detailTextLabel?.text = event?.location
+        }
+        
+        return cell
     }
     
     override func didReceiveMemoryWarning() {
