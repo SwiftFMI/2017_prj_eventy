@@ -77,7 +77,7 @@ class UsersTableViewController: UITableViewController {
     func reloadData() {
         for id in userIds {
             if let indexToReload = cachedUsers.index(where: { $0.id == id }) {
-                reloadCell(index: indexToReload)
+                reloadCell(index: self.userIds.index(of: id)!)
             } else {
                 log.debug("Loading user with id: \(id)")
                 loadUser(id: id) { [unowned self] in
