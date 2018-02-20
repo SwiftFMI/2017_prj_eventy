@@ -220,6 +220,4 @@ class TrendingTableViewController: UITableViewController {
             }
         }
     }
- 
-
 }

@@ -16,7 +16,6 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var mainUser: User?
     
-    // TODO: when this in not nil load the selected user but not the currently logged in
     var userId: Int?
     
     override func viewDidLoad() {
@@ -24,19 +23,13 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadProfile { [unowned self] in
-            if let events = self.mainUser?.eventsIds {
-                for id in events {
-                    if let indexToReload = cachedEvents.index(where: { $0.id == id }) {
-                        self.reloadCell(index: events.index(of: id)!)
-                    } else {
-                        log.debug("Loading event with id: \(id)")
-                        self.loadEvent(id: id) { [unowned self] in
-                            log.debug("Loaded event with id: \(id)")
-                            self.reloadCell(index: events.index(of: id)!)
-                        }
-                    }
-                }
+        if let id = self.userId {
+            loadUser(id: id) { [unowned self] in
+                self.reloadData()
+            }
+        } else {
+            loadProfile { [unowned self] in
+                self.reloadData()
             }
         }
     }
@@ -44,7 +37,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func loadProfile(completion: @escaping () -> Void) {
         guard let t = token?.accessToken else { return }
-    
+        
         Alamofire.request(
             URL(string: serverIp + "/userinfo")!,
             method: .get,
@@ -91,6 +84,59 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
                 completion()
         }
     
+    }
+    
+    func loadUser(id: Int, completion: @escaping () -> Void) {
+        guard let t = token?.accessToken else { return }
+        
+        log.info("will load user with id \(id)")
+        Alamofire.request(
+            URL(string: serverIp + "/user")!,
+            method: .get,
+            parameters: ["userid": "\(id)"],
+            headers: ["access-token" : t])
+            .validate()
+            .responseString { [unowned self] (response) -> Void in // ATTENTION [unowned self] to prevent reference cycle
+                guard response.result.isSuccess else {
+                    log.error("Error response: \(String(describing: response.result.error))")
+                    completion()
+                    return
+                }
+                
+                do {
+                    log.debug(response.result.value!)
+                    
+                    if let json = response.result.value {
+                        self.mainUser = try User(json)
+                        
+                        self.nameLabel.text = self.mainUser!.name
+                        
+                        
+                        let profilePicUrl = URL(string: self.mainUser!.profilePicPath)
+                        
+                        // load without blocking the UI
+                        DispatchQueue.global().async {
+                            let imageData: Data = try! Data(contentsOf: profilePicUrl!)
+                            DispatchQueue.main.async { [unowned self] in
+                                self.profileImage.image = UIImage(data: imageData)
+                            }
+                        }
+                        
+                        // add the used to the cache for later use
+                        if let user = self.mainUser {
+                            cachedUsers = cachedUsers.filter { $0.id != user.id }
+                            cachedUsers.append(user)
+                        }
+                        
+                    } else {
+                        log.warning("cound not get json")
+                    }
+                } catch {
+                    log.warning("Cound not parse response")
+                }
+                completion()
+        }
+        
     }
     
     func loadEvent(id: Int, completion: @escaping () -> Void) {
@@ -146,6 +192,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func reloadData() {
+        if let events = self.mainUser?.eventsIds {
+            for id in events {
+                if let indexToReload = cachedEvents.index(where: { $0.id == id }) {
+                    self.reloadCell(index: events.index(of: id)!)
+                } else {
+                    log.debug("Loading event with id: \(id)")
+                    self.loadEvent(id: id) { [unowned self] in
+                        log.debug("Loaded event with id: \(id)")
+                        self.reloadCell(index: events.index(of: id)!)
+                    }
+                }
+            }
+        }
+    }
+    
     // Table view:
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -179,6 +241,18 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if let indexPath = tableView.indexPathForSelectedRow{
+            let eventId = mainUser?.eventsIds[indexPath.row]
+            if let eventVC = segue.destination as? EventViewController {
+                eventVC.eventId = eventId
+            }
+        }
     }
     
 }
