@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EventViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     
     var eventId: Int? = nil
@@ -60,11 +60,23 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
-        
     }
     
     @IBAction func addImage(_ sender: UIButton) {
-        // TODO: implement image upload
+        let image = UIImagePickerController();
+        image.delegate = self
+        // TODO: Implement upload from both album and camera
+        image.sourceType = UIImagePickerControllerSourceType.savedPhotosAlbum
+        image.allowsEditing = true
+        
+        self.present(image, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            // TODO: Use image here
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     
