@@ -26,6 +26,7 @@
 		A7DAF8D4200D3EF200801734 /* EventyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DAF8D3200D3EF200801734 /* EventyUITests.swift */; };
 		C690F1E380ECD7D0F15CBF26 /* Pods_EventyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A94AE168D8C58A156A526C3A /* Pods_EventyUITests.framework */; };
 		C897AC5A54B3B6DAD9C7BCCC /* Pods_Eventy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4EBDCF831E306B0C54F734 /* Pods_Eventy.framework */; };
+		F62A90CB203F74FE00A7AAEA /* TrendingEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62A90CA203F74FE00A7AAEA /* TrendingEventCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		A94AE168D8C58A156A526C3A /* Pods_EventyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EventyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB94AD4D0666353C89B030F /* Pods-EventyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EventyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EventyUITests/Pods-EventyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C487A2BDAC2D59AE31C6027B /* Pods-Eventy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Eventy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Eventy/Pods-Eventy.release.xcconfig"; sourceTree = "<group>"; };
+		F62A90CA203F74FE00A7AAEA /* TrendingEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingEventCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				A7433F092038B32D00CAC15B /* ImageTableViewCell.swift */,
+				F62A90CA203F74FE00A7AAEA /* TrendingEventCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				A7433F0A2038B32D00CAC15B /* ImageTableViewCell.swift in Sources */,
 				A7433F0020384E5100CAC15B /* Event.swift in Sources */,
 				A7DAF8B4200D3EF200801734 /* AppDelegate.swift in Sources */,
+				F62A90CB203F74FE00A7AAEA /* TrendingEventCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

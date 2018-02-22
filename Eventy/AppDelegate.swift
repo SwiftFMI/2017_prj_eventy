@@ -11,7 +11,8 @@ import SwiftyBeaver
 let log = SwiftyBeaver.self
 var token: Token?
 
-let serverIp = "http://10.0.1.203:8080"
+//let serverIp = "http://10.0.1.203:8080"
+let serverIp = "http://localhost:8080"
 
 var cachedEvents = [Event]()
 var cachedUsers = [User]()

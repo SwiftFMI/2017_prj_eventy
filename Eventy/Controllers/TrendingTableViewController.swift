@@ -12,8 +12,6 @@ class TrendingTableViewController: UITableViewController {
     
     var trending: Trending?
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -106,7 +104,6 @@ class TrendingTableViewController: UITableViewController {
     }
     
     func reloadData() {
-        
         guard let ids = trending?.ids else { return }
         for  id in ids {
             if let indexToReload = cachedEvents.index(where: { $0.id == id }) {
@@ -154,7 +151,7 @@ class TrendingTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! TrendingEventCell
         
         log.info(" cell for row at index path \(indexPath)")
         // Configure the cell...
@@ -162,11 +159,34 @@ class TrendingTableViewController: UITableViewController {
         
         if let t = trending {
             let event = cachedEvents.first(where: {$0.id == t.ids[indexPath.row]})
-            cell.textLabel?.text = event?.name
-            cell.detailTextLabel?.text = event?.location
+            cell.name.text = event?.name
+            cell.location.text = event?.location
+            if let count = event?.participantIds.count {
+                if (count == 1) { cell.participants.text = "\(count) Participant" }
+                else { cell.participants.text = "\(count) Participants" }
+            }
+            cell.eventImage.layer.borderWidth = 1
+            cell.eventImage.layer.masksToBounds = false
+            cell.eventImage.layer.borderColor = UIColor.black.cgColor
+            cell.eventImage.layer.cornerRadius = cell.eventImage.frame.height/2
+            cell.eventImage.clipsToBounds = true
+            if let imagePath = event?.imagePaths[0] {
+                let eventImageUrl = URL(string: imagePath)
+                DispatchQueue.global().async {
+                    let imageData: Data = try! Data(contentsOf: eventImageUrl!)
+                    DispatchQueue.main.async { [unowned self] in
+                        cell.eventImage.image = UIImage(data: imageData)
+                    }
+                }
+            }
+            cell.accessoryType = .disclosureIndicator
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
     }
  
 
